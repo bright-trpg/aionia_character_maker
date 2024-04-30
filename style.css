@@ -1,0 +1,248 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    background-color: #f4f4f4;
+}
+#status {
+    width: 900px;
+    margin: 0px auto 112px;
+}
+
+#character_info, #init_experiments, #skills, #special_skills, #equipments {
+    border-radius: 8px;
+    border:1px solid #404040;
+    padding: 4px 8px;
+    background: linear-gradient(to bottom, #d0d0d0, #ffffff 32px);
+    box-shadow: 4px 4px 4px #00000040;
+}
+.box_contents {
+    margin: 8px 0px;
+}
+
+#character_info{
+    margin: 16px 8px;
+}
+#init_experiments {
+    margin: 16px 8px 8px;
+}
+#equipments{
+    margin: 8px 8px 8px;
+}
+#skills, #special_skills{
+    margin: 8px;
+}
+.box_title {
+    font-weight: bold;
+}
+
+#status input, #status select {
+    border-width: 0 0 1px 0;
+    padding: 1px;
+    box-sizing: content-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    background-color: #ffffff00;
+}
+#status input:focus, #status select:focus {
+    outline: 0px solid #000;
+    border-color: #00d0d0;
+}
+
+#character_names {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+#character_names > div {
+    display: flex;
+    flex-direction: column;
+}
+#name, #species, #rare_species {
+    font-size: 16px;
+    padding: 4px !important;
+}
+
+#init_experiments {
+    display: flex;
+    flex-direction: column;
+}
+#init_disadvantages {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+}
+.init_disadvantage{
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+}
+.init_disadvantage > input {
+    font-size: 16px !important;
+    padding: 4px !important;
+}
+#init_experiment_points {
+    flex-grow: 1;
+}
+#init_experiment_points > div:nth-child(2) {
+    text-align: center;
+    font-size: 20px !important;
+}
+
+#skills {
+    width: 50%;
+}
+#skills_list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+#skills_list {
+    padding: 8px;
+}
+#skills_list > li {
+    padding: 8px;
+}
+
+.skill_name {
+    font-size: 18px;
+}
+
+.expert_list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.expert_list_item {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    margin-left: 24px;
+}
+.expert_list_item input {
+    width: calc(100% - 96px);
+    padding: 4px !important;
+    font-size: 12px;
+}
+.expert_list_item_add, .expert_list_item_delete {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    font-size: 18px !important;
+    user-select: none;
+}
+.expert_list_item_add:hover, .expert_list_item_delete:hover {
+    background-color: #80808080;
+}
+
+
+#special_skills {
+    width: 50%;
+}
+#special_skills_list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+#special_skills_list {
+    padding: 16px !important;
+}
+#special_skills_list:first-child {
+    font-size: 18px;
+}
+#special_skills_list li {
+    margin: 16px 0px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+#special_skills_list input {
+    width: calc(100% - 32px);
+    padding: 4px !important;
+    font-size: 12px;
+}
+#special_skills_list li div {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.special_skill_group, .special_skill {
+    padding: 4px !important;
+    font-size: 12px;
+    width: 49.5%;
+}
+.special_skill_note {
+    width: 100% !important;
+    margin: 4px 0px;
+}
+
+#equipments {
+    display: flex;
+    flex-direction: column;
+}
+
+#equipments .box_contents {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+#equipments .box_contents > div:nth-child(1) {
+    width: 60%;
+}
+#equipments .box_contents > div:nth-child(2) {
+    width: 35%;
+}
+.equipment {
+    display: flex;
+    justify-content: space-around;
+}
+.equipment > label {
+    width: 10%;
+}
+.equipment > select {
+    width: 40%;
+}
+.equipment > input {
+    width: 40%;
+}
+#weight > div:nth-child(2) {
+    text-align: center;
+    font-size: 20px !important;
+}
+
+#footer {
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    bottom: 24px;
+    right: 32px;
+}
+#footer > * {
+    border-radius: 16px;
+    padding: 8px;
+    box-shadow: 2px 2px 8px #00000080;
+    user-select: none;
+    background-color: white;
+}
+#footer > * > div {
+    border-radius: 8px;
+    padding: 8px;
+}
+#experiment_points > div {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    border:2px solid #00d0d0;
+    color: #00d0d0;
+}
+#output_button > div {
+    border:2px solid #404040;
+    color: #404040;
+    cursor: pointer;
+}
