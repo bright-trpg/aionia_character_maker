@@ -228,11 +228,17 @@ window.onload = function(event){
 
         
         memo += `名前：${character_name}（${player_name}）\n`;
-        memo += `種族：${select_species.value == "other" ? `${species}（${rare_species}）` : species}\n`;
-        memo += "\n";
+        memo += `種族：${select_species.value == "other" ? `${species}（${rare_species}）\n` : species}\n`;
 
         // 初期傷痕
         const init_scar = Number(document.querySelector("#init_scar").value);
+
+        // 弱点
+        const init_weakness1 = document.querySelector("#init_weakness_1").value;
+        const init_weakness2 = document.querySelector("#init_weakness_2").value;
+        if (init_weakness1 != "" || init_weakness2 != "") memo += "\n【弱点】\n";
+        if (init_weakness1 != "")memo += `${init_weakness1}\n`;
+        if (init_weakness2 != "")memo += `${init_weakness2}\n`;
 
         // 技能
         var commands = "1d100>={ダメージ}+{傷痕} 〈ダメージチェック〉\n1d100>={ストレス} 〈ストレスチェック〉\n:傷痕+{ダメージ}/2\n:ダメージ=0\n";
@@ -252,7 +258,7 @@ window.onload = function(event){
         });
         
         // 特技
-        memo += "【特技】\n";
+        var special_skill_list = "";
         Array.from(document.getElementById("special_skills_list").children).forEach(function(li){
             const special_skill_group = li.querySelector(".special_skill_group");
             const special_skill = li.querySelector(".special_skill");
@@ -261,14 +267,13 @@ window.onload = function(event){
             const add_input_list = ["enchant", "ritual_of_spirit", "familiar", "magic_weapon", "wisdom", "connection", "hide_object", "instant", "training", "spoofing", "other_name", "honor"];
             
             if(special_skill_group.value != ""){
-                memo += add_input_list.includes(special_skill.value) ? `《${special_skill_name}：${special_skill_note}》` : `《${special_skill_name}》`;
+                special_skill_list += add_input_list.includes(special_skill.value) ? `《${special_skill_name}：${special_skill_note}》` : `《${special_skill_name}》`;
             }
         });
-        memo += "\n\n";
+        if (special_skill_list != "") memo += "\n【特技】\n" + special_skill_list + "\n";
 
 
         // 装備
-        memo += "【装備】\n";
         const weapon1 = document.querySelector("#weapon1");
         const weapon1_group = weapon1.options[weapon1.selectedIndex].textContent;
         const weapon1_name = document.querySelector("#weapon1_name").value;
@@ -287,6 +292,7 @@ window.onload = function(event){
         if (weapon_list[weapon2.value] != ""){
             commands += `${weapon_list[weapon2.value]} 〈ダメージ判定（${weapon2_name}）〉`;
         }
+        if (weapon1.value != "" || weapon2.value != "" || armor.value != "") memo += "\n【装備】\n";
         if (weapon1.value != "") memo += `${weapon1_name}（${weapon1_group}）\n`;
         if (weapon2.value != "") memo += `${weapon2_name}（${weapon2_group}）\n`;
         if (armor.value != "") memo += `${armor_name}（${armor_group}）\n`;
