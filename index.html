@@ -1,1 +1,460 @@
-<h1>Test<h1>
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+    <script src="./index.js"></script>
+</head>
+<body>
+    <div style="text-align: center; margin: 16px 0px; font-size: large; font-weight: bolder;">慈悲なきアイオニア　新規キャラクター作成用ツール</div>
+    <div id="status">
+        <div id="character_info">
+            <div class="box_title">キャラクター</div>
+            <div id="character_names" class="box_contents">
+                <div>
+                    <label for="name">キャラクター名</label>
+                    <input type="text" id="name" name="name"/>
+                </div>
+                <div>
+                    <label for="name">プレイヤー名</label>
+                    <input type="text" id="name" name="name"/>
+                </div>
+                <div>
+                    <label for="species">種族</label>
+                    <select id="species" name="species">
+                        <option value="" disabled selected>選択してください</option>
+                        <option value="human">人間</option>
+                        <option value="elf">エルフ</option>
+                        <option value="dwarf">ドワーフ</option>
+                        <option value="halfling">ディグリング</option>
+                        <option value="therianthropy">獣人</option>
+                        <option value="dragonfolk">竜人</option>
+                        <option value="treefolk">ツリーフォーク</option>
+                        <option value="other">希少人種</option>
+                    </select>
+                </div>
+                <div style="visibility: hidden;">
+                    <label for="rare_species">種族名</label>
+                    <input type="text" id="rare_species" name="rare_species"/>
+                </div>
+            </div>
+        </div>
+
+        <div id="init_experiments">
+            <div class="box_title">初期経験点</div>
+            <div id="init_disadvantages" class="box_contents">
+                <div class="init_disadvantage">
+                    <label for="init_scar">初期傷痕</label>
+                    <input type="number" id="init_scar" name="init_scar" value="0"/>
+                </div>
+                <p>＋</p>
+                <div class="init_disadvantage">
+                    <label for="init_scar">弱点</label>
+                    <input type="text" id="init_weakness_1" name="init_weakness_1"/>
+                </div>
+                <p>＋</p>
+                <div class="init_disadvantage">
+                    <label for="init_scar">弱点</label>
+                    <input type="text" id="init_weakness_2" name="init_weakness_2"/>
+                </div>
+                <p>⇒</p>
+                <div id="init_experiment_points">
+                    <div>
+                        初期経験点
+                    </div>
+                    <div>100</div>
+                </div>
+            </div>
+        </div>
+
+        <div style="display: flex; flex-direction: row;">
+            <div id="skills">
+                <div class="box_title">技能</div>
+                <ul id="skills_list" class="box_contents">
+                    <li>
+                        <input type="checkbox" id="motion" name="motion"/>
+                        <label for="motion" class="skill_name">運動</label>
+                        <ul class="expert_list">
+                            <li class="expert_list_item">
+                                <input type="text" class="motion_expert" name="motion_expert_1" placeholder="専門技能"/>
+                                <div class="expert_list_item_add">＋</div>
+                                <div class="expert_list_item_delete" style="display: none;">－</div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="avoidance" name="avoidance"/>
+                        <label for="avoidance" class="skill_name">回避</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="sense" name="sense"/>
+                        <label for="sense" class="skill_name">感覚</label>
+                        <ul class="expert_list">
+                            <li class="expert_list_item">
+                                <input type="text" class="sense_expert" name="sense_expert_1" placeholder="専門技能"/>
+                                <div class="expert_list_item_add">＋</div>
+                                <div class="expert_list_item_delete" style="display: none;">－</div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="observation" name="observation"/>
+                        <label for="observation" class="skill_name">観察</label>
+                        <ul class="expert_list">
+                            <li class="expert_list_item">
+                                <input type="text" class="observation_expert" name="observation_expert_1" placeholder="専門技能"/>
+                                <div class="expert_list_item_add">＋</div>
+                                <div class="expert_list_item_delete" style="display: none;">－</div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="technique" name="technique"/>
+                        <label for="technique" class="skill_name">技巧</label>
+                        <ul class="expert_list">
+                            <li class="expert_list_item">
+                                <input type="text" class="technique_expert" name="technique_expert_1" placeholder="専門技能"/>
+                                <div class="expert_list_item_add">＋</div>
+                                <div class="expert_list_item_delete" style="display: none;">－</div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="shooting" name="shooting"/>
+                        <label for="shooting" class="skill_name">射撃</label>
+                        <ul class="expert_list">
+                            <li class="expert_list_item">
+                                <input type="text" class="shooting_expert" name="shooting_expert_1" placeholder="専門技能"/>
+                                <div class="expert_list_item_add">＋</div>
+                                <div class="expert_list_item_delete" style="display: none;">－</div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="sociality" name="sociality"/>
+                        <label for="sociality" class="skill_name">社交</label>
+                        <ul class="expert_list">
+                            <li class="expert_list_item">
+                                <input type="text" class="sociality_expert" name="sociality_expert_1" placeholder="専門技能"/>
+                                <div class="expert_list_item_add">＋</div>
+                                <div class="expert_list_item_delete" style="display: none;">－</div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="knowledge" name="knowledge"/>
+                        <label for="knowledge" class="skill_name">知識</label>
+                        <ul class="expert_list">
+                            <li class="expert_list_item">
+                                <input type="text" class="knowledge_expert" name="knowledge_expert_1" placeholder="専門技能"/>
+                                <div class="expert_list_item_add">＋</div>
+                                <div class="expert_list_item_delete" style="display: none;">－</div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="combat" name="combat"/>
+                        <label for="combat" class="skill_name">白兵</label>
+                        <ul class="expert_list">
+                            <li class="expert_list_item">
+                                <input type="text" class="combat_expert" name="combat_expert_1" placeholder="専門技能"/>
+                                <div class="expert_list_item_add">＋</div>
+                                <div class="expert_list_item_delete" style="display: none;">－</div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="defense" name="defense"/>
+                        <label for="defense" class="skill_name">防御</label>
+                    </li>
+                </ul>
+            </div>
+            <div id="special_skills">
+                <div class="box_title">特技</div>
+                <ul id="special_skills_list" class="box_contents">
+                    <li>
+                        <div>
+                            <select id="special_skill_group_1" class="special_skill_group" name="special_skill_group_1">
+                                <option value="">種類を選択</option>
+                                <option value="tactics">戦術</option>
+                                <option value="magic">魔術</option>
+                                <option value="features">特徴</option>
+                            </select>
+                            <select class="special_skill" name="special_skill_1">
+                                <option value="">---</option>
+                            </select>
+                        </div>
+                        <input type="text" class="special_skill_note" id="special_skill_note_1" name="special_skill_note_1" style="display: none;" placeholder="追記事項"/>
+                    </li>
+                    <li>
+                        <div>
+                            <select id="special_skill_group_2" class="special_skill_group" name="special_skill_group_2">
+                                <option value="">種類を選択</option>
+                                <option value="tactics">戦術</option>
+                                <option value="magic">魔術</option>
+                                <option value="features">特徴</option>
+                            </select>
+                            <select class="special_skill" name="special_skill_2">
+                                <option value="">---</option>
+                            </select>
+                        </div>
+                        <input type="text" class="special_skill_note" id="special_skill_note_2" name="special_skill_note_2" style="display: none;" placeholder="追記事項"/>
+                    </li>
+                    <li>
+                        <div>
+                            <select id="special_skill_group_3" class="special_skill_group" name="special_skill_group_3">
+                                <option value="">種類を選択</option>
+                                <option value="tactics">戦術</option>
+                                <option value="magic">魔術</option>
+                                <option value="features">特徴</option>
+                            </select>
+                            <select class="special_skill" name="special_skill_3">
+                                <option value="">---</option>
+                            </select>
+                        </div>
+                        <input type="text" class="special_skill_note" id="special_skill_note_3" name="special_skill_note_3" style="display: none;" placeholder="追記事項"/>
+                    </li>
+                    <li>
+                        <div>
+                            <select id="special_skill_group_4" class="special_skill_group" name="special_skill_group_4">
+                                <option value="">種類を選択</option>
+                                <option value="tactics">戦術</option>
+                                <option value="magic">魔術</option>
+                                <option value="features">特徴</option>
+                            </select>
+                            <select class="special_skill" name="special_skill_4">
+                                <option value="">---</option>
+                            </select>
+                        </div>
+                        <input type="text" class="special_skill_note" id="special_skill_note_4" name="special_skill_note_4" style="display: none;" placeholder="追記事項"/>
+                    </li>
+                    <li>
+                        <div>
+                            <select id="special_skill_group_5" class="special_skill_group" name="special_skill_group_5">
+                                <option value="">種類を選択</option>
+                                <option value="tactics">戦術</option>
+                                <option value="magic">魔術</option>
+                                <option value="features">特徴</option>
+                            </select>
+                            <select class="special_skill" name="special_skill_5">
+                                <option value="">---</option>
+                            </select>
+                        </div>
+                        <input type="text" class="special_skill_note" id="special_skill_note_5" name="special_skill_note_5" style="display: none;" placeholder="追記事項"/>
+                    </li>
+                    <li>
+                        <div>
+                            <select id="special_skill_group_6" class="special_skill_group" name="special_skill_group_6">
+                                <option value="">種類を選択</option>
+                                <option value="tactics">戦術</option>
+                                <option value="magic">魔術</option>
+                                <option value="features">特徴</option>
+                            </select>
+                            <select class="special_skill" name="special_skill_6">
+                                <option value="">---</option>
+                            </select>
+                        </div>
+                        <input type="text" class="special_skill_note" id="special_skill_note_6" name="special_skill_note_6" style="display: none;" placeholder="追記事項"/>
+                    </li>
+                    <li>
+                        <div>
+                            <select id="special_skill_group_7" class="special_skill_group" name="special_skill_group_7">
+                                <option value="">種類を選択</option>
+                                <option value="tactics">戦術</option>
+                                <option value="magic">魔術</option>
+                                <option value="features">特徴</option>
+                            </select>
+                            <select class="special_skill" name="special_skill_7">
+                                <option value="">---</option>
+                            </select>
+                        </div>
+                        <input type="text" class="special_skill_note" id="special_skill_note_7" name="special_skill_note_7" style="display: none;" placeholder="追記事項"/>
+                    </li>
+                    <li>
+                        <div>
+                            <select id="special_skill_group_8" class="special_skill_group" name="special_skill_group_8">
+                                <option value="">種類を選択</option>
+                                <option value="tactics">戦術</option>
+                                <option value="magic">魔術</option>
+                                <option value="features">特徴</option>
+                            </select>
+                            <select class="special_skill" name="special_skill_8">
+                                <option value="">---</option>
+                            </select>
+                        </div>
+                        <input type="text" class="special_skill_note" id="special_skill_note_8" name="special_skill_note_8" style="display: none;" placeholder="追記事項"/>
+                    </li>
+                    <li>
+                        <div>
+                            <select id="special_skill_group_9" class="special_skill_group" name="special_skill_group_9">
+                                <option value="">種類を選択</option>
+                                <option value="tactics">戦術</option>
+                                <option value="magic">魔術</option>
+                                <option value="features">特徴</option>
+                            </select>
+                            <select class="special_skill" name="special_skill_9">
+                                <option value="">---</option>
+                            </select>
+                        </div>
+                        <input type="text" class="special_skill_note" id="special_skill_note_9" name="special_skill_note_9" style="display: none;" placeholder="追記事項"/>
+                    </li>
+                    <li>
+                        <div>
+                            <select id="special_skill_group_10" class="special_skill_group" name="special_skill_group_10">
+                                <option value="">種類を選択</option>
+                                <option value="tactics">戦術</option>
+                                <option value="magic">魔術</option>
+                                <option value="features">特徴</option>
+                            </select>
+                            <select class="special_skill" name="special_skill_10">
+                                <option value="">---</option>
+                            </select>
+                        </div>
+                        <input type="text" class="special_skill_note" id="special_skill_note_10" name="special_skill_note_10" style="display: none;" placeholder="追記事項"/>
+                    </li>
+                    <li>
+                        <div>
+                            <select id="special_skill_group_11" class="special_skill_group" name="special_skill_group_11">
+                                <option value="">種類を選択</option>
+                                <option value="tactics">戦術</option>
+                                <option value="magic">魔術</option>
+                                <option value="features">特徴</option>
+                            </select>
+                            <select class="special_skill" name="special_skill_11">
+                                <option value="">---</option>
+                            </select>
+                        </div>
+                        <input type="text" class="special_skill_note" id="special_skill_note_11" name="special_skill_note_11" style="display: none;" placeholder="追記事項"/>
+                    </li>
+                    <li>
+                        <div>
+                            <select id="special_skill_group_12" class="special_skill_group" name="special_skill_group_12">
+                                <option value="">種類を選択</option>
+                                <option value="tactics">戦術</option>
+                                <option value="magic">魔術</option>
+                                <option value="features">特徴</option>
+                            </select>
+                            <select class="special_skill" name="special_skill_12">
+                                <option value="">---</option>
+                            </select>
+                        </div>
+                        <input type="text" class="special_skill_note" id="special_skill_note_12" name="special_skill_note_12" style="display: none;" placeholder="追記事項"/>
+                    </li>
+                    <li>
+                        <div>
+                            <select id="special_skill_group_13" class="special_skill_group" name="special_skill_group_13">
+                                <option value="">種類を選択</option>
+                                <option value="tactics">戦術</option>
+                                <option value="magic">魔術</option>
+                                <option value="features">特徴</option>
+                            </select>
+                            <select class="special_skill" name="special_skill_13">
+                                <option value="">---</option>
+                            </select>
+                        </div>
+                        <input type="text" class="special_skill_note" id="special_skill_note_13" name="special_skill_note_13" style="display: none;" placeholder="追記事項"/>
+                    </li>
+                    <li>
+                        <div>
+                            <select id="special_skill_group_14" class="special_skill_group" name="special_skill_group_14">
+                                <option value="">種類を選択</option>
+                                <option value="tactics">戦術</option>
+                                <option value="magic">魔術</option>
+                                <option value="features">特徴</option>
+                            </select>
+                            <select class="special_skill" name="special_skill_14">
+                                <option value="">---</option>
+                            </select>
+                        </div>
+                        <input type="text" class="special_skill_note" id="special_skill_note_14" name="special_skill_note_14" style="display: none;" placeholder="追記事項"/>
+                    </li>
+                    <li>
+                        <div>
+                            <select id="special_skill_group_15" class="special_skill_group" name="special_skill_group_15">
+                                <option value="">種類を選択</option>
+                                <option value="tactics">戦術</option>
+                                <option value="magic">魔術</option>
+                                <option value="features">特徴</option>
+                            </select>
+                            <select class="special_skill" name="special_skill_15">
+                                <option value="">---</option>
+                            </select>
+                        </div>
+                        <input type="text" class="special_skill_note" id="special_skill_note_15" name="special_skill_note_15" style="display: none;" placeholder="追記事項"/>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="equipments">
+            <div class="box_title">装備品</div>
+            <div class="box_contents">
+                <div>
+                    <div class="equipment">
+                        <label for="weapon1">武器1</label>
+                        <select id="weapon1" name="weapon1">
+                            <option value="" disabled selected>なし</option>
+                            <option value="combat_small">小型白兵武器</option>
+                            <option value="combat_medium">中型白兵武器</option>
+                            <option value="combat_large">大型白兵武器</option>
+                            <option value="shooting">射撃武器</option>
+                            <option value="catalyst">魔術触媒</option>
+                        </select>
+                        <input type="text" id="weapon1_name" name="weapon1_name" placeholder="装備名"/>
+                    </div>
+                    <div class="equipment">
+                        <label for="weapon2">武器2</label>
+                        <select id="weapon2" name="weapon2">
+                            <option value="" disabled selected>なし</option>
+                            <option value="combat_small">小型白兵武器</option>
+                            <option value="combat_medium">中型白兵武器</option>
+                            <option value="combat_large">大型白兵武器</option>
+                            <option value="shooting">射撃武器</option>
+                            <option value="catalyst">魔術触媒</option>
+                        </select>
+                        <input type="text" id="weapon2_name" name="weapon2_name" placeholder="装備名"/>
+                    </div>
+                    <div class="equipment">
+                        <label for="armor">防具</label>
+                        <select id="armor" name="armor">
+                            <option value="" disabled selected>なし</option>
+                            <option value="light_armor">軽装防具</option>
+                            <option value="heavy_armor">重装防具</option>
+                        </select>
+                        <input type="text" id="armor_name" name="armor_name" placeholder="装備名"/>
+                    </div>
+                </div>
+                <div id="weight">
+                    <div>
+                        荷重
+                    </div>
+                    <div>
+                        0
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+        <div id="experiment_points">
+            <div>
+                <div>
+                    経験点
+                </div>
+                <div id="now_experiment_points">
+                    0
+                </div>
+                /
+                <div id="max_experiment_points">
+                    100
+                </div>
+            </div>
+        </div>
+        <div id="output_button">
+            <div>
+                ココフォリア駒出力
+            </div>
+        </div>
+    </div>
+</body>
+</html>
