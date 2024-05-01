@@ -333,4 +333,11 @@ window.onload = function(event){
             console.error(error.message);
         }
     })
+
+    document.getElementById("footer_left").addEventListener("mouseover", function(event){
+        document.getElementById("help").style.visibility = "visible";
+    });
+    document.getElementById("footer_left").addEventListener("mouseleave", function(event){
+        document.getElementById("help").style.visibility = "hidden";
+    });
 };
