@@ -16,8 +16,8 @@
                     <input type="text" id="name" name="name"/>
                 </div>
                 <div>
-                    <label for="name">プレイヤー名</label>
-                    <input type="text" id="name" name="name"/>
+                    <label for="player_name">プレイヤー名</label>
+                    <input type="text" id="player_name" name="player_name"/>
                 </div>
                 <div>
                     <label for="species">種族</label>
@@ -434,6 +434,39 @@
                 </div>
             </div>
         </div>
+        
+        <div id="session_history">
+            <div class="box_title">セッション履歴</div>
+            <ul id="histories" class="box_contents">
+                <li>
+                    <div class="history width20">
+                        <label for="session_name">セッション名</label>
+                        <input type="text" id="session_name" name="session_name" class="session_name" value=""/>
+                    </div>
+                    <div class="history width15">
+                        <label for="last_scar">最終傷痕</label>
+                        <input type="number" id="last_scar" name="last_scar" class="last_scar" value=""/>
+                    </div>
+                    <div class="history width15">
+                        <label for="last_stress">最終ストレス</label>
+                        <input type="number" id="last_stress" name="last_stress" class="last_stress" value=""/>
+                    </div>
+                    <div class="history width15">
+                        <label for="got_experiments">増加経験点</label>
+                        <input type="number" id="got_experiments" name="got_experiments" class="got_experiments" value=""/>
+                    </div>
+                    <div class="history width20">
+                        <label for="got_aftereffects">付与後遺症</label>
+                        <input type="text" id="got_aftereffects" name="got_aftereffects" class="got_aftereffects" value=""/>
+                    </div>
+                    <div class="history_item_wrapper">
+                        <div class="history_item_add">＋</div>
+                        <div class="history_item_delete" style="visibility: hidden;">－</div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
     </div>
     <div id="footer">
         <div id="footer_left">
@@ -452,6 +485,17 @@
                     <div id="max_experiment_points">
                         100
                     </div>
+                </div>
+            </div>
+            <div id="save_button">
+                <div>
+                    データ保存
+                </div>
+            </div>
+            <div id="load_button">
+                <input type="file" id="load_input"/>
+                <div>
+                    データ読込
                 </div>
             </div>
             <div id="output_button">
