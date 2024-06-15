@@ -182,10 +182,9 @@ window.onload = function(event){
 
         const max_exp = scar + (weakness1 + weakness2) * 10 + 100 + got_exp;
         
-        document.querySelector("#init_experiment_points > div:nth-child(2)").innerHTML = max_exp;
+        //document.querySelector("#init_experiment_points > div:nth-child(2)").innerHTML = max_exp;
         document.querySelector("#max_experiment_points").innerHTML = max_exp;
     }
-
     document.getElementById("init_experiments").addEventListener("change", function(event){
         set_max_exp();
     });
@@ -500,13 +499,6 @@ window.onload = function(event){
 
                 set_max_exp();
                 set_now_exp();
-
-                
-                let save_data = {
-                    "skills": skills,
-                    "special_skills": special_skills,
-                    "histories": histories
-                };
             //} catch (error) {
                 //alert("データ読み込みに失敗しました");
             //}
