@@ -8,7 +8,7 @@ body {
     margin: 0px auto 112px;
 }
 
-#character_info, #init_experiments, #skills, #special_skills, #equipments {
+#character_info, #init_experiments, #now_status, #skills, #special_skills, #equipments, #session_history {
     border-radius: 8px;
     border:1px solid #404040;
     padding: 4px 8px;
@@ -16,13 +16,14 @@ body {
     box-shadow: 4px 4px 4px #00000040;
 }
 .box_contents {
-    margin: 8px 0px;
+    margin: 8px 16px;
+    justify-content: space-between;
 }
 
 #character_info{
     margin: 16px 8px;
 }
-#init_experiments {
+#init_experiments, #now_status, #session_history {
     margin: 16px 8px 8px;
 }
 #equipments{
@@ -54,13 +55,12 @@ body {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-around;
 }
 #character_names > div {
     display: flex;
     flex-direction: column;
 }
-#name, #species, #rare_species {
+#name, #player_name, #species, #rare_species {
     font-size: 16px;
     padding: 4px !important;
 }
@@ -89,6 +89,25 @@ body {
 #init_experiment_points > div:nth-child(2) {
     text-align: center;
     font-size: 20px !important;
+}
+
+#now_status {
+    display: flex;
+    flex-direction: column;
+}
+#now_status_list {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+}
+.now_status_item{
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+}
+.now_status_item > input {
+    font-size: 16px !important;
+    padding: 4px !important;
 }
 
 #skills {
@@ -189,7 +208,7 @@ body {
 #equipments .box_contents {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 #equipments .box_contents > div:nth-child(1) {
     width: 60%;
@@ -213,6 +232,55 @@ body {
 #weight > div:nth-child(2) {
     text-align: center;
     font-size: 20px !important;
+}
+
+#session_history {
+    display: flex;
+    flex-direction: column;
+}
+#histories {
+    padding: 0px;
+    list-style: none;
+}
+#histories > li {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    margin: 8px 0px;
+}
+.history{
+    display: flex;
+    flex-direction: column;
+}
+.width10{ width: 10%; }
+.width15{ width: 15%; }
+.width20{ width: 20%; }
+.width25{ width: 25%; }
+.history > input {
+    font-size: 12px !important;
+    padding: 4px !important;
+}
+.history > label {
+    font-size: 14px !important;
+}
+.history_item_wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+.history_item_add, .history_item_delete {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    font-size: 18px !important;
+    user-select: none;
+}
+.history_item_add:hover, .history_item_delete:hover {
+    background-color: #80808080;
 }
 
 #footer_left {
@@ -264,6 +332,19 @@ body {
     gap: 8px;
     border:2px solid #00d0d0;
     color: #00d0d0;
+}
+#save_button > div {
+    border:2px solid #404040;
+    color: #404040;
+    cursor: pointer;
+}
+#load_button > div {
+    border:2px solid #404040;
+    color: #404040;
+    cursor: pointer;
+}
+#load_button > input {
+    display: none;
 }
 #output_button > div {
     border:2px solid #404040;
