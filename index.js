@@ -527,7 +527,8 @@ window.onload = function(event){
         var memo = "";
 
         
-        memo += `名前：${character_name}（${player_name}）\n`;
+        memo += `名前：${character_name}`;
+        memo += player_name != "" ? `（${player_name}）\n` : "\n";
         memo += `種族：${select_species.value == "other" ? `${species}（${rare_species}）\n` : species}\n`;
 
 
