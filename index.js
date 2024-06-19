@@ -550,7 +550,7 @@ window.onload = function(event){
         // 技能
         var commands = "1d100>={ダメージ}+{傷痕} 〈ダメージチェック〉\n1d100>={ストレス} 〈ストレスチェック〉\n:傷痕+{ダメージ}/2\n:ダメージ=0\n";
         Array.from(document.getElementById("skills_list").children).forEach(function(li){
-            const dice = li.querySelector("input").checked ? "2d6" : "1d6";
+            const dice = li.querySelector("input").checked ? "2d10" : "1d10";
             const skill_name = li.querySelector(".skill_name").textContent;
             commands += `${dice} 〈${skill_name}〉\n`;
 
@@ -559,7 +559,7 @@ window.onload = function(event){
             Array.from(li.querySelector(".expert_list").children).forEach(function(l){
                 const special_skill_name = l.querySelector("input").value;
                 if(special_skill_name != ""){
-                    commands += `3d6 〈${skill_name}：${special_skill_name}〉\n`;
+                    commands += `3d10 〈${skill_name}：${special_skill_name}〉\n`;
                 }
             });
         });
