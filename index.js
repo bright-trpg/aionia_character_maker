@@ -189,14 +189,17 @@ window.onload = function(event){
         set_max_exp();
     });
 
-    document.getElementById("equipments").addEventListener("change", function(event){
+    function set_weight(){
         var weapon1 = document.querySelector("#weapon1").value;
         var weapon2 = document.querySelector("#weapon2").value;
         var armor = document.querySelector("#armor").value;
-        const weapon_list = {"": 0, "combat_small": 1, "combat_medium": 3, "combat_large": 5, "shooting": 2, "catalyst": 1};
-        const armor_list = {"": 0, "light_armor": 2, "heavy_armor": 5};
+        const weapon_list = {"none": 0, "combat_small": 1, "combat_medium": 3, "combat_large": 5, "shooting": 2, "catalyst": 1};
+        const armor_list = {"none": 0, "light_armor": 2, "heavy_armor": 5};
         
         document.querySelector("#weight > div:nth-child(2)").innerHTML = weapon_list[weapon1] + weapon_list[weapon2] + armor_list[armor];
+    };
+    document.getElementById("equipments").addEventListener("change", function(event){
+        set_weight();
     });
 
     function set_now_exp(){
@@ -499,6 +502,7 @@ window.onload = function(event){
 
                 set_max_exp();
                 set_now_exp();
+                set_weight();
             //} catch (error) {
                 //alert("データ読み込みに失敗しました");
             //}
